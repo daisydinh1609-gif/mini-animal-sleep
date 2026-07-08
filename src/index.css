@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  html {
+    font-family: 'Nunito', sans-serif;
+    overscroll-behavior: none;
+  }
+
+  body {
+    @apply bg-gray-950 text-white;
+    overscroll-behavior: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-primary {
+    @apply font-bold rounded-2xl px-6 py-4 text-lg transition-all duration-200 active:scale-95 select-none;
+  }
+
+  .btn-icon {
+    @apply flex items-center justify-center rounded-full transition-all duration-200 active:scale-90;
+  }
+
+  .sound-pill {
+    @apply px-4 py-2.5 rounded-full text-sm font-700 transition-all duration-200 active:scale-95 border;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+}
+
+/* Prevent scroll on player */
+.no-scroll {
+  overflow: hidden;
+  height: 100dvh;
+}
+
+/* Volume slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+input[type="range"]::-webkit-slider-track {
+  background: rgba(255,255,255,0.15);
+  height: 6px;
+  border-radius: 100px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  margin-top: -9px;
+  transition: transform 0.15s ease;
+}
+input[type="range"]::-webkit-slider-thumb:active {
+  transform: scale(1.2);
+}
+input[type="range"]::-moz-range-track {
+  background: rgba(255,255,255,0.15);
+  height: 6px;
+  border-radius: 100px;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Star styles */
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Glow text */
+.text-glow {
+  text-shadow: 0 0 20px currentColor;
+}
+
+/* Safe area support */
+.safe-bottom {
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+}
+.safe-top {
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
